@@ -144,10 +144,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .container {
-  max-width: 100vw; /* Assegura que não exceda a largura da viewport */
-  overflow-x: hidden; /* Remove scroll horizontal */
-  overflow-y: auto; /* Permite scroll vertical se necessário */
-  padding: 0 1rem; /* Adiciona algum preenchimento */
+  max-width: 100vw; 
+  overflow-x: hidden;
+  overflow-y: auto; 
+  padding: 0 1rem; 
   .pokemon-search {
     display: flex;
     justify-content: space-between;
@@ -216,8 +216,8 @@ export default defineComponent({
 
   .pokemon-card {
     cursor: pointer;
-    width: 100%; /* Ocupa toda a largura disponível */
-    max-width: 30rem; /* Define uma largura máxima para evitar que os cards sejam muito largos */
+    width: 100%; 
+    max-width: 30rem; 
     height: 18rem;
     margin-top: 1.456rem;
     transition: all 0.3s;
@@ -261,8 +261,8 @@ export default defineComponent({
 
   .pokemon-favorite {
     overflow-x: hidden;
-    overflow-y: auto; /* Remove scroll horizontal */
-    width: 100%; /* Largura total */
+    overflow-y: auto;
+    width: 100%; 
   }
 }
 </style>
