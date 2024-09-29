@@ -7,6 +7,10 @@
         @input="searchPokemon"
         placeholder="Buscar Pokémon"
       />
+      <button @click="toggleFavorites" class="pokemon-favorite">
+        {{ showFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos' }}
+      </button>
+
       <img src="../assets/pokemon.png" alt="Logo Pokemon" class="pokemon-logo" />
     </div>
 
@@ -18,7 +22,7 @@
         :pokemonImage="pokemon.sprites.other['official-artwork'].front_default"
         :pokemonId="pokemon.id"
         :pokemonType="pokemon.types[0].type.name"
-        @click="selectPokemon(pokemon)"
+        @dblclick="selectPokemon(pokemon)"
         class="pokemon-card"
       />
     </section>
@@ -65,7 +69,9 @@ export default defineComponent({
       searchQuery: '',
       page: 1,
       pokemonsPerPage: 6,
-      selectedPokemon: null
+      selectedPokemon: null,
+      showFavorites: false,
+      favoritePokemons: []
     }
   },
   methods: {
@@ -75,6 +81,7 @@ export default defineComponent({
       )
       this.pokemons = responses.map((res) => res.data)
       this.filteredPokemons = this.pokemons.slice(0, this.pokemonsPerPage)
+      this.updateFilteredPokemons()
     },
     async getPokemon(pokemonId: Number) {
       return await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
@@ -92,11 +99,16 @@ export default defineComponent({
         }
       } else {
         this.getPagePokemons()
+        this.updateFilteredPokemons()
       }
     },
     async getPagePokemons() {
       const startIndex = (this.page - 1) * this.pokemonsPerPage
       this.filteredPokemons = this.pokemons.slice(startIndex, startIndex + this.pokemonsPerPage)
+    },
+    toggleFavorites() {
+      this.showFavorites = !this.showFavorites
+      this.updateFilteredPokemons()
     },
     selectPokemon(pokemon) {
       this.selectedPokemon = pokemon
@@ -110,30 +122,40 @@ export default defineComponent({
         this.page--
         this.getPagePokemons()
       }
+    },
+    updateFilteredPokemons() {
+      if (this.showFavorites) {
+        const favorites = JSON.parse(localStorage.getItem('favoritePokemons') || '[]')
+        this.filteredPokemons = this.pokemons.filter((pokemon) => favorites.includes(pokemon.id))
+      } else {
+        this.getPagePokemons()
+      }
+    },
+    selectPokemon(pokemon) {
+      this.selectedPokemon = pokemon
     }
   },
   mounted() {
     this.fetchPokemons()
+    this.favoritePokemons = JSON.parse(localStorage.getItem('favoritePokemons') || '[]')
   }
 })
 </script>
 
 <style lang="scss" scoped>
 .container {
-  max-width: 100vw;
+  max-width: 100vw; /* Assegura que não exceda a largura da viewport */
+  overflow-x: hidden; /* Remove scroll horizontal */
+  overflow-y: auto; /* Permite scroll vertical se necessário */
+  padding: 0 1rem; /* Adiciona algum preenchimento */
   .pokemon-search {
     display: flex;
     justify-content: space-between;
   }
-  .pokemon-search img {
-    width: 30rem;
-    height: 9.375rem;
-    margin-top: -3.125rem;
-    margin-right: 5.5rem;
-  }
+
   .pokemon-search input {
-    width: 18.75rem;
-    height: 2.5rem;
+    width: 18rem;
+    height: 2.4rem;
     padding: 0.625rem 1.25rem;
     margin: 0.938rem 0 0.625rem 1.875rem;
     border: 0.125rem solid #181716;
@@ -151,14 +173,32 @@ export default defineComponent({
     font-style: italic;
   }
 
+  .pokemon-logo {
+    width: 15rem;
+    height: 5rem;
+    margin-top: -0.1rem;
+    margin-right: 5.5rem;
+  }
+
+  .pokemon-favorite {
+    cursor: pointer;
+    display: flex;
+    width: 5rem;
+    height: 2.5rem;
+    margin-top: 1rem;
+    padding: 0.2rem;
+    color: #000;
+    border-radius: 1rem;
+  }
+
   .pokemon-section {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
     width: 100%;
+    gap: 1rem;
     margin: 3rem 0;
     padding: 0 2rem;
-    display: flex;
-
     opacity: 1;
   }
 
@@ -174,21 +214,28 @@ export default defineComponent({
     }
   }
 
+  .pokemon-card {
+    cursor: pointer;
+    width: 100%; /* Ocupa toda a largura disponível */
+    max-width: 30rem; /* Define uma largura máxima para evitar que os cards sejam muito largos */
+    height: 18rem;
+    margin-top: 1.456rem;
+    transition: all 0.3s;
+    opacity: 0.8;
+  }
+
   .pokemon-card:hover {
     transform: translateY(-1.25rem);
     opacity: 1;
-  }
-
-  .pokemon-card {
-    transition: all 0.3s;
-    opacity: 0.8;
   }
 }
 
 @media (max-width: 768px) {
   .container {
     max-width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .pokemon-logo {
@@ -197,6 +244,7 @@ export default defineComponent({
 
   .pokemon-section {
     flex-direction: column;
+    overflow-y: scroll;
   }
 
   .pokemon-card {
@@ -209,6 +257,12 @@ export default defineComponent({
   .pokemon-card:hover {
     transform: scale(1);
     transform: none;
+  }
+
+  .pokemon-favorite {
+    overflow-x: hidden;
+    overflow-y: auto; /* Remove scroll horizontal */
+    width: 100%; /* Largura total */
   }
 }
 </style>

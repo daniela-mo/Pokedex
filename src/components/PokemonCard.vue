@@ -1,6 +1,10 @@
 <template>
   <div class="pokemon-card-container" :style="{ background: background }" @click="$emit('click')">
+    <div class="pokemon-favorite-icon" @click="toggleFavorite">
+      <i :class="isFavorite ? 'fas fa-heart' : 'far fa-heart'"></i>
+    </div>
     <h3 class="pokemon-name">#{{ pokemonId }} - {{ pokemonName }}</h3>
+
     <img :src="pokemonImage" alt="pokemon" class="pokemon-image" />
 
     <p class="pokemon-type">{{ pokemonType }}</p>
@@ -26,6 +30,11 @@ export default defineComponent({
       type: Number
     }
   },
+  data() {
+    return {
+      isFavorite: false
+    }
+  },
   setup() {
     return {}
   },
@@ -36,13 +45,13 @@ export default defineComponent({
       } else if (this.pokemonType === 'bug') {
         return '#2d5639'
       } else if (this.pokemonType === 'fire') {
-        return '#F94C66'
+        return '#f7768a'
       } else if (this.pokemonType === 'water') {
         return '#12c3f7'
       } else if (this.pokemonType === 'flying') {
         return '#92b1c6'
       } else if (this.pokemonType === 'poison') {
-        return '#6736dd'
+        return '#7e5cd6'
       } else if (this.pokemonType === 'doison') {
         return '#5e3382'
       } else if (this.pokemonType === 'normal') {
@@ -72,6 +81,24 @@ export default defineComponent({
       }
       return '#fff'
     }
+  },
+  mounted() {
+    const favorites = JSON.parse(localStorage.getItem('favoritePokemons') || '[]')
+    this.isFavorite = favorites.includes(this.pokemonId)
+  },
+  methods: {
+    toggleFavorite() {
+      let favorites = JSON.parse(localStorage.getItem('favoritePokemons') || '[]')
+
+      if (this.isFavorite) {
+        favorites = favorites.filter((id: number) => id !== this.pokemonId)
+      } else {
+        favorites.push(this.pokemonId)
+      }
+
+      localStorage.setItem('favoritePokemons', JSON.stringify(favorites))
+      this.isFavorite = !this.isFavorite
+    }
   }
 })
 </script>
@@ -82,9 +109,10 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 20rem;
+  height: 18.5rem;
   width: 30rem;
   border-radius: 1rem;
+
   .pokemon-name {
     padding: 0.25rem 0.75rem;
     border-radius: 1rem;
@@ -92,6 +120,19 @@ export default defineComponent({
     color: #fff;
     font-size: 1.125rem;
     text-transform: uppercase;
+  }
+
+  .pokemon-favorite-icon {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1rem;
+  }
+  .pokemon-favorite-icon i {
+    color: #0e0d0d;
+  }
+  .pokemon-favorite-icon i.fas {
+    color: #c30000;
   }
   .pokemon-type {
     padding: 0.25rem 0.75rem;

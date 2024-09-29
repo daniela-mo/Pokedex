@@ -207,6 +207,6 @@ export default defineComponent({
 .header-container {
   display: flex;
   padding-top: 0.625rem;
-  height: 3rem;
+  height: 2.85rem;
 }
 </style>
