@@ -60,18 +60,33 @@ import PokemonCard from '../components/PokemonCard.vue'
 import Modal from '../components/Modal/Modal.vue'
 import axios from 'axios'
 
+interface Pokemon {
+  name: string
+  id: number
+  sprites: {
+    other: {
+      'official-artwork': {
+        front_default: string
+      }
+    }
+  }
+  types: { type: { name: string } }[]
+  stats: { base_stat: number }[]
+}
+
 export default defineComponent({
   components: { Pagination, PokemonCard, Modal },
+
   data() {
     return {
-      pokemons: [],
-      filteredPokemons: [],
+      pokemons: [] as Pokemon[],
+      filteredPokemons: [] as Pokemon[],
       searchQuery: '',
       page: 1,
       pokemonsPerPage: 6,
-      selectedPokemon: null,
+      selectedPokemon: null as Pokemon | null,
       showFavorites: false,
-      favoritePokemons: []
+      favoritePokemons: [] as number[]
     }
   },
   methods: {
@@ -110,9 +125,7 @@ export default defineComponent({
       this.showFavorites = !this.showFavorites
       this.updateFilteredPokemons()
     },
-    selectPokemon(pokemon) {
-      this.selectedPokemon = pokemon
-    },
+
     nextPage() {
       this.page++
       this.getPagePokemons()
@@ -131,7 +144,7 @@ export default defineComponent({
         this.getPagePokemons()
       }
     },
-    selectPokemon(pokemon) {
+    selectPokemon(pokemon: Pokemon) {
       this.selectedPokemon = pokemon
     }
   },
