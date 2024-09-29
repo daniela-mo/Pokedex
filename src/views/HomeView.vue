@@ -11,7 +11,7 @@
         {{ showFavorites ? 'Mostrar Todos' : 'Mostrar Favoritos' }}
       </button>
 
-      <img src="../assets/pokemon.png" alt="Logo Pokemon" class="pokemon-logo" />
+      <img src="../assets/pokemon.png" alt="Logo Pokemon" class="pokemon-img" />
     </div>
 
     <section v-if="filteredPokemons.length > 0" class="pokemon-section">
@@ -26,6 +26,8 @@
         class="pokemon-card"
       />
     </section>
+
+    <button @click="goToFirstPage" class="back-to-start-btn">Voltar ao Início</button>
 
     <Pagination :page="page" @next="nextPage" @previous="previousPage" />
 
@@ -117,10 +119,12 @@ export default defineComponent({
         this.updateFilteredPokemons()
       }
     },
+
     async getPagePokemons() {
       const startIndex = (this.page - 1) * this.pokemonsPerPage
       this.filteredPokemons = this.pokemons.slice(startIndex, startIndex + this.pokemonsPerPage)
     },
+
     toggleFavorites() {
       this.showFavorites = !this.showFavorites
       this.updateFilteredPokemons()
@@ -130,12 +134,14 @@ export default defineComponent({
       this.page++
       this.getPagePokemons()
     },
+
     previousPage() {
       if (this.page > 1) {
         this.page--
         this.getPagePokemons()
       }
     },
+
     updateFilteredPokemons() {
       if (this.showFavorites) {
         const favorites = JSON.parse(localStorage.getItem('favoritePokemons') || '[]')
@@ -144,10 +150,17 @@ export default defineComponent({
         this.getPagePokemons()
       }
     },
+
     selectPokemon(pokemon: Pokemon) {
       this.selectedPokemon = pokemon
+    },
+
+    goToFirstPage() {
+      this.page = 1
+      this.getPagePokemons()
     }
   },
+
   mounted() {
     this.fetchPokemons()
     this.favoritePokemons = JSON.parse(localStorage.getItem('favoritePokemons') || '[]')
@@ -186,7 +199,7 @@ export default defineComponent({
     font-style: italic;
   }
 
-  .pokemon-logo {
+  .pokemon-img {
     width: 15rem;
     height: 5rem;
     margin-top: -0.1rem;
@@ -197,18 +210,18 @@ export default defineComponent({
     cursor: pointer;
     display: flex;
     align-items: center;
-    width: 5.9rem;
-    height: 2.4rem;
-    margin-top: 1rem;
-    padding: 0.22rem;
-    color: #000;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 3.125rem;
+    margin: 2rem auto;
+    padding: 0.5rem 1rem;
+    background-color: #ffcc01;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    transition: background-color 0.3s ease;
   }
   .pokemon-favorite:hover {
-    background-color: #000000;
-    color: #fff;
+    background-color: #ffaa00;
   }
 
   .pokemon-section {
@@ -249,6 +262,22 @@ export default defineComponent({
     opacity: 1;
   }
 }
+.back-to-start-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #ffcc01;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-start-btn:hover {
+  background-color: #ffaa00;
+}
 
 @media (max-width: 768px) {
   .container {
@@ -258,7 +287,7 @@ export default defineComponent({
     overflow-y: auto;
   }
 
-  .pokemon-logo {
+  .pokemon-img {
     display: none;
   }
 

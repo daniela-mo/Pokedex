@@ -1,62 +1,65 @@
 <template>
   <nav class="header-container">
-    <svg
-      width="100"
-      height="183"
-      viewBox="0 0 192 493"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="91" cy="91.5" r="90" fill="#F9FBF8" stroke="black" stroke-width="2" />
-      <circle
-        cx="95"
-        cy="83.5"
-        r="72"
-        fill="url(#paint0_radial_1_83)"
-        stroke="black"
-        stroke-width="2"
-      />
-      <g filter="url(#filter0_f_1_83)">
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M83.5 101.5C106.972 101.5 126 82.4722 126 59C126 45.8418 120.02 34.0801 110.63 26.2844C138.953 33.0926 160 58.5884 160 89C160 124.622 131.122 153.5 95.5 153.5C59.8776 153.5 31 124.622 31 89C31 76.1157 34.7778 64.1137 41.2862 54.0413C41.0972 55.668 41 57.3227 41 59C41 82.4722 60.0279 101.5 83.5 101.5Z"
-          fill="#00F3FF"
+    <div>
+      <svg
+        width="100"
+        height="183"
+        viewBox="0 0 192 493"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="91" cy="91.5" r="90" fill="#F9FBF8" stroke="black" stroke-width="2" />
+        <circle
+          cx="95"
+          cy="83.5"
+          r="72"
+          fill="url(#paint0_radial_1_83)"
+          stroke="black"
+          stroke-width="2"
         />
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M83.5 101.5C106.972 101.5 126 82.4722 126 59C126 45.8418 120.02 34.0801 110.63 26.2844C138.953 33.0926 160 58.5884 160 89C160 124.622 131.122 153.5 95.5 153.5C59.8776 153.5 31 124.622 31 89C31 76.1157 34.7778 64.1137 41.2862 54.0413C41.0972 55.668 41 57.3227 41 59C41 82.4722 60.0279 101.5 83.5 101.5Z"
-          fill="#0EBDD2"
-        />
-      </g>
-      <defs>
-        <filter
-          id="filter0_f_1_83"
-          x="27"
-          y="22.2844"
-          width="137"
-          height="135.216"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_1_83" />
-        </filter>
-        <radialGradient
-          id="paint0_radial_1_83"
-          cx="0"
-          cy="0"
-          r="1"
-          gradientUnits="userSpaceOnUse"
-          gradientTransform="translate(87.5 50.5) rotate(78.5412) scale(37.7525)"
-        >
-          <stop offset="0.269033" stop-color="#D2FDFF" />
-          <stop offset="1" stop-color="#0FEBF7" />
-        </radialGradient>
-      </defs>
-    </svg>
+        <g filter="url(#filter0_f_1_83)">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M83.5 101.5C106.972 101.5 126 82.4722 126 59C126 45.8418 120.02 34.0801 110.63 26.2844C138.953 33.0926 160 58.5884 160 89C160 124.622 131.122 153.5 95.5 153.5C59.8776 153.5 31 124.622 31 89C31 76.1157 34.7778 64.1137 41.2862 54.0413C41.0972 55.668 41 57.3227 41 59C41 82.4722 60.0279 101.5 83.5 101.5Z"
+            fill="#00F3FF"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M83.5 101.5C106.972 101.5 126 82.4722 126 59C126 45.8418 120.02 34.0801 110.63 26.2844C138.953 33.0926 160 58.5884 160 89C160 124.622 131.122 153.5 95.5 153.5C59.8776 153.5 31 124.622 31 89C31 76.1157 34.7778 64.1137 41.2862 54.0413C41.0972 55.668 41 57.3227 41 59C41 82.4722 60.0279 101.5 83.5 101.5Z"
+            fill="#0EBDD2"
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_1_83"
+            x="27"
+            y="22.2844"
+            width="137"
+            height="135.216"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_1_83" />
+          </filter>
+          <radialGradient
+            id="paint0_radial_1_83"
+            cx="0"
+            cy="0"
+            r="1"
+            gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(87.5 50.5) rotate(78.5412) scale(37.7525)"
+          >
+            <stop offset="0.269033" stop-color="#D2FDFF" />
+            <stop offset="1" stop-color="#0FEBF7" />
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+
     <svg
       width="100"
       height="49"
