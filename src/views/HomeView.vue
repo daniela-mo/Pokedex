@@ -16,7 +16,7 @@
 
     <section v-if="filteredPokemons.length > 0" class="pokemon-section">
       <PokemonCard
-        v-for="(pokemon, index) in filteredPokemons"
+        v-for="pokemon in filteredPokemons"
         :key="pokemon.name"
         :pokemonName="pokemon.name"
         :pokemonImage="pokemon.sprites.other['official-artwork'].front_default"
@@ -55,7 +55,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Pagination from '../components/Pagination.vue'
+import Pagination from '../components/PaginationButtons.vue'
 import PokemonCard from '../components/PokemonCard.vue'
 import Modal from '../components/Modal/Modal.vue'
 import axios from 'axios'
@@ -157,17 +157,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .container {
-<<<<<<< HEAD
   max-width: 100vw;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0 1rem;
-=======
-  max-width: 100vw; 
-  overflow-x: hidden;
-  overflow-y: auto; 
-  padding: 0 1rem; 
->>>>>>> 3aac038710310af9702a81042a90aaed493a5f1d
   .pokemon-search {
     display: flex;
     justify-content: space-between;
@@ -243,13 +236,8 @@ export default defineComponent({
 
   .pokemon-card {
     cursor: pointer;
-<<<<<<< HEAD
     width: 100%;
     max-width: 30rem;
-=======
-    width: 100%; 
-    max-width: 30rem; 
->>>>>>> 3aac038710310af9702a81042a90aaed493a5f1d
     height: 18rem;
     margin-top: 1.456rem;
     transition: all 0.3s;
@@ -293,11 +281,7 @@ export default defineComponent({
   .pokemon-favorite {
     overflow-x: hidden;
     overflow-y: auto;
-<<<<<<< HEAD
     width: 100%;
-=======
-    width: 100%; 
->>>>>>> 3aac038710310af9702a81042a90aaed493a5f1d
   }
 }
 </style>
