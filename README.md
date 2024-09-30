@@ -1,39 +1,36 @@
-# pokedex
+# Teste FrontEnd - Pokedéx
 
-This template should help get you started developing with Vue 3 in Vite.
+#1. Como fazer o clone do projeto:
 
-## Recommended IDE Setup
+Faça o clone do projeto na sua máquina usando o comando git clone dentro do prompt de comando. Para obter o link do projeto, clique no botão  Clone  localizado no lado direito do repositório.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+##2. Dica de como rodar o projeto: 
+Ainda dentro do prompt de comando, digite os comandos abaixo
 
-## Type Support for `.vue` Imports in TS
+- cd pokedex (você entrará na pasta do projeto)
+- code . (abrirá do editor de texto vsCode)
+- Rode o comando npm i ou npm install (para instalar o pacote do node_modules)
+- Abra o terminal dentro do vsCode e digite o comando npm run dev
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+###3.Instruções de uso:
 
-## Customize configuration
+Para Pesquisar pelo card do Pokemon favorito, digite o nome do Pokemon ou o número.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Para favoritar, clique no ícone de “coração”. Para remover dos favoritos, clique novamente.
 
-## Project Setup
+####4. Considerações finais:
 
-```sh
-npm install
-```
+-Escolhi um layout com base na pokedex
+-Coloquei um botão de Voltar ao início para melhor navegação entre as páginas
+-Escolhi poucas animações para não correr o risco de exagerar e acabar poluindo o projeto. 
 
-### Compile and Hot-Reload for Development
 
-```sh
-npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
 
-```sh
-npm run build
-```
+Para seguir para a próxima pagina, ou para voltar a pagina anterior, clique nas setas posicionadas abaixo dos cards.
 
-### Lint with [ESLint](https://eslint.org/)
+Para visualizar os favoritos, click no botão “Mostrar Favoritos”.
 
-```sh
-npm run lint
-```
+Para visualizar todos os cards, click em “Mostrar Todos”.
+
+Para voltar a primeira página click em “Voltar ao ínicio”.
