@@ -183,17 +183,6 @@
       </defs>
     </svg>
   </nav>
-  <svg
-    width="1536"
-    height="67"
-    viewBox="0 0 1137 47"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M0.00415266 46.5C0.00415266 46.5 555 46.5 588 46.5" stroke="black" />
-    <line x1="701" y1="0.5" x2="1137" y2="0.5" stroke="black" />
-    <line x1="587.811" y1="46.5369" x2="700.811" y2="0.536902" stroke="black" />
-  </svg>
 </template>
 
 <script lang="ts">
@@ -210,6 +199,8 @@ export default defineComponent({
 .header-container {
   display: flex;
   padding-top: 0.625rem;
-  height: 2.85rem;
+  height: 7rem;
+  margin-bottom: 2rem;
+  border-bottom: #000 solid;
 }
 </style>
