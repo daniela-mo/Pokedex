@@ -310,7 +310,7 @@ export default defineComponent({
   .pokemon-favorite {
     overflow-x: hidden;
     overflow-y: auto;
-    width: 100%;
+    width: 50%;
   }
 }
 </style>
