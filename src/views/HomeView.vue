@@ -295,6 +295,7 @@ export default defineComponent({
   }
 
   .pokemon-search input {
+    width: 100%;
     margin-left: 50px;
     border-left: solid;
   }
