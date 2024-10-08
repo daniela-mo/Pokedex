@@ -198,6 +198,7 @@ export default defineComponent({
 .pokemon-search input::placeholder {
   color: #aaa;
   font-style: italic;
+  text-align: center;
 }
 
 .pokemon-img {
