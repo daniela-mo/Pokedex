@@ -291,13 +291,13 @@ export default defineComponent({
 
   .pokemon-search {
     display: flex;
+    width: 100%;
     flex-direction: column;
+    margin: 0 1rem;
   }
 
   .pokemon-search input {
-    width: 100%;
-    margin-left: 50px;
-    border-left: solid;
+    width: 75%;
   }
 
   .pokemon-img {
