@@ -174,93 +174,93 @@ export default defineComponent({
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0 1rem;
-  .pokemon-search {
-    display: flex;
-    justify-content: space-between;
-  }
+}
+.pokemon-search {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .pokemon-search input {
-    width: 18rem;
-    height: 2.4rem;
-    padding: 0.625rem 1.25rem;
-    margin: 0.938rem 0 0.625rem 1.875rem;
-    border: 0.125rem solid #181716;
-    border-radius: 3.125rem;
+.pokemon-search input {
+  width: 18rem;
+  height: 2.4rem;
+  padding: 0.625rem 1.25rem;
+  margin: 0.938rem 0 0.625rem 1.875rem;
+  border: 0.125rem solid #181716;
+  border-radius: 3.125rem;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f9f9f9;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-search input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.pokemon-img {
+  width: 15rem;
+  height: 5rem;
+  margin-top: -0.1rem;
+  margin-right: 5.5rem;
+}
+
+.pokemon-favorite {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 0.5rem 1rem;
+  background-color: #ffcc01;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+.pokemon-favorite:hover {
+  background-color: #ffaa00;
+}
+
+.pokemon-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  margin: 3rem 0;
+  padding: 0 2rem;
+  opacity: 1;
+}
+
+.pokemon-modal {
+  h2 {
+    text-transform: uppercase;
+  }
+  p {
     font-size: 1rem;
-    color: #333;
-    background-color: #f9f9f9;
-    outline: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
   }
+  p::first-letter {
+    text-transform: uppercase;
+  }
+}
 
-  .pokemon-search input::placeholder {
-    color: #aaa;
-    font-style: italic;
-  }
+.pokemon-card {
+  cursor: pointer;
+  width: 100%;
+  max-width: 30rem;
+  height: 18rem;
+  margin-top: 1.456rem;
+  transition: all 0.3s;
+  opacity: 0.8;
+}
 
-  .pokemon-img {
-    width: 15rem;
-    height: 5rem;
-    margin-top: -0.1rem;
-    margin-right: 5.5rem;
-  }
-
-  .pokemon-favorite {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin: 2rem auto;
-    padding: 0.5rem 1rem;
-    background-color: #ffcc01;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    color: #333;
-    transition: background-color 0.3s ease;
-  }
-  .pokemon-favorite:hover {
-    background-color: #ffaa00;
-  }
-
-  .pokemon-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    gap: 1rem;
-    margin: 3rem 0;
-    padding: 0 2rem;
-    opacity: 1;
-  }
-
-  .pokemon-modal {
-    h2 {
-      text-transform: uppercase;
-    }
-    p {
-      font-size: 1rem;
-    }
-    p::first-letter {
-      text-transform: uppercase;
-    }
-  }
-
-  .pokemon-card {
-    cursor: pointer;
-    width: 100%;
-    max-width: 30rem;
-    height: 18rem;
-    margin-top: 1.456rem;
-    transition: all 0.3s;
-    opacity: 0.8;
-  }
-
-  .pokemon-card:hover {
-    transform: translateY(-1.25rem);
-    opacity: 1;
-  }
+.pokemon-card:hover {
+  transform: translateY(-1.25rem);
+  opacity: 1;
 }
 .back-to-start-btn {
   display: block;
@@ -283,8 +283,20 @@ export default defineComponent({
   .container {
     height: 100vh;
     max-width: 100vw;
+    align-items: center;
+    justify-content: center;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  .pokemon-search {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pokemon-search input {
+    margin-left: 50px;
+    border-left: solid;
   }
 
   .pokemon-img {
@@ -310,7 +322,7 @@ export default defineComponent({
   .pokemon-favorite {
     overflow-x: hidden;
     overflow-y: auto;
-    width: 100%;
+    width: 42%;
   }
 }
 </style>
