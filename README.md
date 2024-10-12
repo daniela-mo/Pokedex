@@ -23,6 +23,7 @@ Para favoritar, clique no ícone de “coração”. Para remover dos favoritos,
 -Escolhi um layout com base na pokedex
 -Coloquei um botão de Voltar ao início para melhor navegação entre as páginas
 -Escolhi poucas animações para não correr o risco de exagerar e acabar poluindo o projeto. 
+-Tecnologias usadas: Vite, Vue e TypeScript
 
 
 
